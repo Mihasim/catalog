@@ -1,11 +1,13 @@
 from django.shortcuts import render
 
-from django.shortcuts import render
-
 from catalog.models import Product
 
 
 def home(request):
+    if request.method == 'POST':
+        pk = request.POST.get('pk')
+        print(pk)
+
     product_list = Product.objects.all()
     context = {
         'products': product_list
@@ -23,5 +25,8 @@ def contacts(request):
 
 
 def product(request):
-
-    return render(request, 'catalog/product.html')
+    product = Product.objects.get(pk=3)
+    context = {
+        'product': product
+    }
+    return render(request, 'catalog/product.html', context)
