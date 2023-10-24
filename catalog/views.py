@@ -4,10 +4,6 @@ from catalog.models import Product
 
 
 def home(request):
-    if request.method == 'POST':
-        pk = request.POST.get('pk')
-        print(pk)
-
     product_list = Product.objects.all()
     context = {
         'products': product_list
@@ -24,9 +20,12 @@ def contacts(request):
     return render(request, 'catalog/contacts.html')
 
 
-def product(request):
-    product = Product.objects.get(pk=3)
+def product(request, pk):
+    product_item = Product.objects.get(pk=pk)
+    product_list = Product.objects.all()
     context = {
-        'product': product
+        'product_id': Product.objects.filter(id=pk),
+        'title': f'Страница товара {product_item.name}',
+        'product_data': product_list[pk]
     }
     return render(request, 'catalog/product.html', context)
