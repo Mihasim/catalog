@@ -1,5 +1,44 @@
 [
   {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Телеграмм бот",
+      "description": "Бот для ТГ",
+      "image": "",
+      "category": "Товар",
+      "purchase_price": 1000,
+      "date_of_creation": "2023-01-01T00:00:00Z",
+      "last_modified_date": "2023-10-20T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "YouTube парсер",
+      "description": "парсер для YT",
+      "image": "",
+      "category": "Товар",
+      "purchase_price": 10000,
+      "date_of_creation": "2023-02-01T00:00:00Z",
+      "last_modified_date": "2023-09-20T00:00:00Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Плюмбус",
+      "description": "Добро пожаловать в захватывающий мир владения Плюмбусом! Плюмбус поможет во многих вещах в жизни, сделав ее проще. При надлежащем уходе, обращении, хранении и настойчивости Plumbus обеспечит вам лучшую жизнь и счастье на всю жизнь.",
+      "image": "products/Everybody_has_a_Plumbus.JPG.webp",
+      "category": "Товары",
+      "purchase_price": 1000,
+      "date_of_creation": "2023-10-23T17:25:16Z",
+      "last_modified_date": "2023-10-23T17:25:15Z"
+    }
+  },
+  {
     "model": "catalog.category",
     "pk": 1,
     "fields": {
@@ -11,21 +50,29 @@
     "model": "catalog.category",
     "pk": 2,
     "fields": {
-      "name": "Товар",
-      "description": "Товары на продажу"
-    }
-  },
-  {
-    "model": "catalog.category",
-    "pk": 3,
-    "fields": {
       "name": "Ресурс",
       "description": "Ресурс компании"
     }
   },
   {
     "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Товар",
+      "description": "Товары на продажу"
+    }
+  },
+  {
+    "model": "catalog.category",
     "pk": 4,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Дерево"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
     "fields": {
       "name": "Товар",
       "description": "Что-то полезное"
@@ -33,10 +80,26 @@
   },
   {
     "model": "catalog.category",
-    "pk": 5,
+    "pk": 6,
     "fields": {
       "name": "Ресурс",
       "description": "Оборудование"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Камень"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 8,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Золото"
     }
   }
 ]
