@@ -26,6 +26,6 @@ def product(request, pk):
     context = {
         'product_id': Product.objects.filter(id=pk),
         'title': f'Страница товара {product_item.name}',
-        'product_data': product_list[pk]
+        'product_data': product_list[pk-1]
     }
     return render(request, 'catalog/product.html', context)
