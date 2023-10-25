@@ -6,7 +6,7 @@ register = template.Library()
 @register.filter()
 def first_100(value: str):
     text = value[:100]
-    return text
+    return f'{text}...'
 
 
 @register.filter()
