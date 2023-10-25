@@ -13,22 +13,20 @@ class Product(models.Model):
     last_modified_date = models.DateTimeField(verbose_name='дата последнего изменения')
 
     def __str__(self):
-        # Строковое отображение объекта
         return (f'{self.name} {self.description} {self.category} '
                 f'{self.purchase_price} {self.date_of_creation} {self.last_modified_date}')
 
     class Meta:
-        verbose_name = 'продукт'  # Настройка для наименования одного объекта
-        verbose_name_plural = 'продукты'  # Настройка для наименования набора объектов
+        verbose_name = 'продукт'
+        verbose_name_plural = 'продукты'
 
 class Category(models.Model):
     name = models.CharField(max_length=90, verbose_name='наименование')
     description = models.CharField(max_length=300, verbose_name='описание')
 
     def __str__(self):
-        # Строковое отображение объекта
         return (f'{self.name} {self.description}')
 
     class Meta:
-        verbose_name = 'категория'  # Настройка для наименования одного объекта
-        verbose_name_plural = 'категории'  # Настройка для наименования набора объектов
+        verbose_name = 'категория'
+        verbose_name_plural = 'категории'
