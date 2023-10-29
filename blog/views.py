@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
@@ -9,7 +10,6 @@ class BlogCreateView(CreateView):
     model = Blog
     fields = ('Heading', 'Content', 'image', 'is_active',)
     success_url = reverse_lazy('blog:list')
-
 
     def form_valid(self, form):
         if form.is_valid():
@@ -28,6 +28,7 @@ class BlogListView(ListView):
         queryset = super().get_queryset(*args, **kwargs)
         queryset = queryset.filter(is_active=True)
         return queryset
+
 
 class BlogDetailView(DetailView):
     model = Blog
@@ -55,8 +56,18 @@ class BlogUpdateView(UpdateView):
         return reverse('blog:view', args=[self.kwargs.get('pk')])
 
 
-
-
 class BlogDeleteView(DeleteView):
     model = Blog
     success_url = reverse_lazy('blog:list')
+
+
+def toggle_activity(request, pk):
+    blog_item = get_object_or_404(Blog, pk=pk)
+    if blog_item.is_active:
+        blog_item.is_active = False
+    else:
+        blog_item.is_active = True
+
+    blog_item.save()
+
+    return redirect(reverse('blog:list'))

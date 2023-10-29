@@ -28,6 +28,7 @@
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:view' blog.pk %}">Просмотреть</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:edit' blog.pk %}">Изменить</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:delete' blog.pk %}">Удалить</a>
+                <a class="btn btn-sm btn-warning" href="{% url 'blog:toggle_activity' blog.pk %}">Деактиввировать</a>
             </form>
         </div>
     </div>
