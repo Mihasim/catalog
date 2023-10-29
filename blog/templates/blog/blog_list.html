@@ -19,7 +19,11 @@
             </ul>
             <ul  class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.date_of_creation}}</ul >
             <ul  class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.is_active}}</ul >
-            <ul class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.view_count}}</ul>
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3"></ul>
+            <div class="acrd-footer">
+                Просмотры: {{ blog.view_count}}
+
+            </div>
             <form action="" method="post">
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:view' blog.pk %}">Просмотреть</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:edit' blog.pk %}">Изменить</a>
