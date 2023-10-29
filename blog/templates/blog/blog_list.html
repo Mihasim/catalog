@@ -1,0 +1,33 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+    <a class="btn btn-outline-primary mt-3 mb-4" href="{% url 'blog:create'%}">Создать статью</a>
+
+{% for blog in blog_list %}
+<div class="col-3">
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">{{ blog.Heading }}</h4>
+        </div>
+        <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                {{blog.Content | first_100}}
+                <img class="card-img-top"
+                src="{% mediapath blog.image %}"
+                alt="Card image cap" />
+            </ul>
+            <ul  class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.date_of_creation}}</ul >
+            <ul  class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.is_active}}</ul >
+            <ul class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.view_count}}</ul>
+            <form action="" method="post">
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:view' blog.pk %}">Просмотреть</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:edit' blog.pk %}">Изменить</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'blog:delete' blog.pk %}">Удалить</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+

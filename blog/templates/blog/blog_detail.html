@@ -1,0 +1,22 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="col-12">
+    <div class="card mb-3 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">{{ blog.Heading }}</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+              {{blog.Content}}
+              <img class="card-img-top"
+              src="{% mediapath blog.image %}"
+              alt="Card image cap" />
+          </ul>
+          <ul  class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.date_of_creation}}</ul >
+          <ul  class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.is_active}}</ul >
+          <ul class="list-unstyled mt-3 mb-4 text-start m-3">{{ blog.view_count}}</ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
