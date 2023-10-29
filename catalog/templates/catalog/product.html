@@ -4,16 +4,16 @@
         <div class="col-12">
             <div class="card mb-3 box-shadow">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">{{ product_data.name }}</h4>
+                    <h4 class="my-0 font-weight-normal">{{ product.name }}</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">Цена:{{ product_data.purchase_price}} руб</h1>
-                   <li>{{ product_data.description}}</li>
-                    <li>Категория: {{ product_data.category}}</li>
-                    <li>Дата создания: {{ product_data.date_of_creation}}</li>
-                    <li>Дата последнего изменения: {{ product_data.last_modified_date}}</li>
+                    <h1 class="card-title pricing-card-title">Цена:{{ product.purchase_price}} руб</h1>
+                   <li>{{ product.description}}</li>
+                    <li>Категория: {{ product.category}}</li>
+                    <li>Дата создания: {{ product.date_of_creation}}</li>
+                    <li>Дата последнего изменения: {{ product.last_modified_date}}</li>
                         <img class="card-img-top"
-                        src="{{ product_data.image | mediapath }}"
+                        src="{% mediapath product.image %}"
                         alt="Card image cap" />
                     </ul>
                     </form>
