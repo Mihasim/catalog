@@ -1,0 +1,138 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "YouTube парсер",
+      "description": "парсер для YT",
+      "image": "",
+      "category": "Товар",
+      "purchase_price": 10000,
+      "date_of_creation": "2023-02-01T00:00:00Z",
+      "last_modified_date": "2023-09-20T00:00:01Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Плюмбус",
+      "description": "Добро пожаловать в захватывающий мир владения Плюмбусом! Плюмбус поможет во многих вещах в жизни, сделав ее проще. При надлежащем уходе, обращении, хранении и настойчивости Plumbus обеспечит вам лучшую жизнь и счастье на всю жизнь.",
+      "image": "products/Everybody_has_a_Plumbus.JPG.webp",
+      "category": "Товары",
+      "purchase_price": 1000,
+      "date_of_creation": "2023-10-23T17:25:16Z",
+      "last_modified_date": "2023-10-23T17:25:15Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Тест",
+      "description": "выапывп",
+      "image": "",
+      "category": "Товары",
+      "purchase_price": 223,
+      "date_of_creation": "2023-11-12T10:03:03Z",
+      "last_modified_date": "2023-11-12T10:03:03Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "name": "Test3",
+      "description": "выапывп",
+      "image": "",
+      "category": "Товары",
+      "purchase_price": 2,
+      "date_of_creation": "2023-11-12T13:31:19Z",
+      "last_modified_date": "2023-11-12T13:31:19Z"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Товар",
+      "description": "Товары магазина"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Ресурс компании"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Товар",
+      "description": "Товары на продажу"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Дерево"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "name": "Товар",
+      "description": "Что-то полезное"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Оборудование"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Камень"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 8,
+    "fields": {
+      "name": "Ресурс",
+      "description": "Золото"
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 2,
+    "fields": {
+      "name_product": 12,
+      "version_number": 1,
+      "name_version": "ghgh",
+      "flag_of_the_cur_ver": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 3,
+    "fields": {
+      "name_product": 12,
+      "version_number": 2,
+      "name_version": "456",
+      "flag_of_the_cur_ver": false
+    }
+  }
+]

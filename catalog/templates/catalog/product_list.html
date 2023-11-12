@@ -1,6 +1,7 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags %}
 {% block content %}
+        <a class="btn btn-outline-primary mt-3 mb-4" href="{% url 'catalog:create_product'%}">Добавить продукт</a>
         {% for product in product_list %}
         <div class="col-3">
             <div class="card mb-4 box-shadow">
@@ -16,7 +17,9 @@
                         alt="Card image cap" />
                     </ul>
                     <form action="" method="post">
-                        <a class="btn btn-outline-primary" href="{% url 'catalog:product' product.pk %}">Купить</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:product' product.pk %}">Просмотреть</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:edit_product' product.pk %}">Изменить</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:delete_product' product.pk %}">Удалить</a>
                     </form>
                 </div>
             </div>
