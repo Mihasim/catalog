@@ -1,10 +1,19 @@
 from django.forms import inlineformset_factory
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Version
+
+
+class ProtectView(View):
+    def get(self, *args, **kwargs):
+        if self.request.user.pk is None:
+            return redirect('users:login')
+        else:
+            return super().get(*args, **kwargs)
 
 
 class ProductListView(ListView):
@@ -26,10 +35,16 @@ class ProductDetailView(DetailView):
     template_name = 'catalog/product.html'
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(ProtectView, CreateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
+
+    def form_valid(self, form):
+        if form.is_valid:
+            new_product = form.save()
+            new_product.user = self.request.user
+            new_product.save()
 
     def get_success_url(self):
         return reverse('catalog:product_list')
@@ -58,7 +73,7 @@ class ProductListView(ListView):
     template_name = 'catalog/product_list.html'
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(ProtectView, UpdateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
@@ -85,7 +100,7 @@ class ProductUpdateView(UpdateView):
         return super().form_valid(form)
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(ProtectView, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:product_list')
 

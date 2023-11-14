@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'catalog',
-    'blog'
+    'blog',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -59,11 +60,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'e_shop', # Название БД
-        'USER': 'postgres', # Пользователь для подключения
-        'PASSWORD': '5482', # Пароль для этого пользователя
-        'HOST': '127.0.0.1', # Адрес, на котором развернут сервер БД
-        'PORT': 5432, # Порт, на котором работает сервер БД
+        'NAME': 'e_shop',
+        'USER': 'postgres',
+        'PASSWORD': '5482',
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
     }
 }
 
@@ -103,3 +104,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'mihasim251@yandex.ru'
+EMAIL_HOST_PASSWORD = 'fthwhjfawmrbtfde'
+EMAIL_USE_SSL = True

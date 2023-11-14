@@ -1,0 +1,23 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6">
+                    <div class="card-header">
+                        <h3 class="card-title mt-2 mb-2" >
+                            Вход
+                        </h3>
+                    </div>
+                <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-outline-primary mt-2 mb-2">войти</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
