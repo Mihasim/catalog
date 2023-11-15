@@ -31,6 +31,8 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         new_user = form.save()
+        new_user.is_active = False
+        new_user.save()
         send_mail(
             subject='Подтвердите регистрацию',
             message=f'Вы зарегистрировались, теперь подтвердите резистрацию\n '
@@ -54,9 +56,11 @@ class EmailVerifyView(TemplateView):
 
         if user_code is not None and user_code.key == key:
             user_code.email_verify = True
+            user_code.is_active = True
             user_code.save()
             return redirect('users:login')
         else:
+            user_code.is_active = False
             return redirect('users:verify_email')
 
 
