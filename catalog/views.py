@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.cache import cache
 from django.forms import inlineformset_factory
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
@@ -9,6 +11,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from catalog.forms import ProductForm, VersionForm, ModerProductForm
 from catalog.models import Product, Version
+from catalog.services import cache_category
 
 
 class ProductListView(ListView):
@@ -63,6 +66,10 @@ class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
 
         return super().form_valid(form)
 
+    def get_queryset(self):
+        """возвращаем кэш с категориями"""
+        return cache_category
+
 
 class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Product
@@ -80,6 +87,7 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
         context_data = super().get_context_data(*args, **kwargs)
         product_item = Product.objects.get(pk=self.kwargs.get('pk'))
         context_data['product_pk'] = product_item.pk
+
         VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
             context_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
